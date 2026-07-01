@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Educativa: Descuentos y Porcentajes</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Comprensión del Porcentaje en Compras</h1>
+            <p>El porcentaje de descuento representa una fracción de 100 que se resta al valor original de un producto. Aprende a calcular el ahorro real y el precio final de tus compras.</p>
+        </header>
+
+        <div class="grid-layout">
+            <main class="card">
+                <h2>1. Datos de la Compra</h2>
+                <p style="font-size: 0.9rem; margin-bottom: 15px; color:#64748b;">
+                    Ingresa el precio base del producto y el porcentaje de descuento que deseas aplicar.
+                </p>
+
+                <div id="errorDiv" class="error-message"></div>
+
+                <div class="form-group">
+                    <label for="precioOriginal">Precio Original del Producto ($):</label>
+                    <input type="number" id="precioOriginal" placeholder="Ej. 15000" step="any">
+                </div>
+
+                <div class="form-group">
+                    <label for="porcentajeDescuento">Porcentaje de Descuento (%):</label>
+                    <input type="number" id="porcentajeDescuento" placeholder="Ej. 20" min="0" max="100" step="any">
+                </div>
+
+                <div class="btn-container">
+                    <button type="button" class="btn-clear" onclick="limpiar()">Limpiar</button>
+                    <button type="button" class="btn-calc" onclick="calcularDescuento()">Calcular y Explicar</button>
+                </div>
+            </main>
+
+            <section class="card">
+                <h2>2. Desglose Matemático Paso a Paso</h2>
+                
+                <div id="placeholder" class="placeholder-text">
+                    Ingresa los valores comerciales en la sección izquierda y presiona "Calcular y Explicar" para ver el procedimiento estructurado.
+                </div>
+
+                <div id="output" class="output-content">
+                    
+                    <h3>Fórmulas Utilizadas</h3>
+                    <p style="font-size: 0.9rem; margin-bottom: 5px;">Existen dos formas de analizar un descuento comercial:</p>
+                    <div class="math-box formula">
+                        Ahorro = (Precio × %Descuento) ÷ 100 <br>
+                        Precio Final = Precio Original − Ahorro
+                    </div>
+
+                    <h3>Desarrollo Paso a Paso</h3>
+                    <div class="math-box" id="htmlPasos">
+                        </div>
+
+                    <h3>El Factor Multiplicador (Método Directo)</h3>
+                    <p style="font-size: 0.9rem; margin-bottom: 5px;">En el comercio es útil saber qué porcentaje neto estás pagando realmente:</p>
+                    <div class="math-box" id="htmlFactor">
+                        </div>
+
+                    <h3>Interpretación Comercial</h3>
+                    <div class="highlight" id="htmlInterpretacion">
+                        </div>
+
+                    <h3 style="margin-top: 20px;">Tabla de Valores del Producto</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Concepto</th>
+                                <th>Porcentaje (%)</th>
+                                <th>Valor ($)</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbodyValores">
+                            </tbody>
+                    </table>
+
+                    <h3 style="margin-top: 20px;">Gráfico de Distribución del Precio</h3>
+                    <div class="graph-container">
+                        <svg width="350" height="160" id="graficoSvg" viewBox="0 0 350 160">
+                            <rect x="10" y="10" width="330" height="140" rx="6" fill="#f8fafc" stroke="#e2e8f0"/>
+                            <g id="dinamicoSvg"></g>
+                        </svg>
+                    </div>
+
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
